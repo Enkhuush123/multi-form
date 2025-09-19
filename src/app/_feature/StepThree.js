@@ -25,13 +25,11 @@ export const StepThree = (props) => {
 
   const getStepThreeFromLocalStorage = () => {
     const values = localStorage.getItem("stepThree");
-    if (values) {
-      return JSON.parse(values);
-    } else {
-      return {
-        date: "",
-      };
-    }
+    const savedImage = localStorage.getItem("stepThreeImage");
+    return {
+      date: values ? JSON.parse(values).date : "",
+      image: savedImage ? savedImage : null,
+    };
   };
 
   const [formValue, setFormValue] = useState(getStepThreeFromLocalStorage);
@@ -43,6 +41,14 @@ export const StepThree = (props) => {
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base = reader.result;
+        setImage(base);
+        localStorage.setItem("stepThreeImage", base);
+      };
+      reader.readAsDataURL(file);
+
       setImage(URL.createObjectURL(file));
     }
   };
@@ -86,7 +92,9 @@ export const StepThree = (props) => {
 
     if (Object.keys(errors).length === 0) {
       setErrorState({});
-      addStepThreeToLocalStorage;
+      addStepThreeToLocalStorage(formValue);
+      localStorage.setItem("stepThreeImage", image);
+
       HandleNextStep();
     } else {
       setErrorState(errors);

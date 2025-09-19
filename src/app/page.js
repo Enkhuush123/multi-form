@@ -8,17 +8,32 @@ import { StepThree } from "./_feature/StepThree";
 import { StepFour } from "./_feature/StepFour";
 
 export default function Home() {
-  const [step, setStep] = useState(1);
+  const getSavedStep = () => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("currentStep");
+      return saved ? Number(saved) : 1;
+    }
+  };
+  const [step, setStep] = useState(getSavedStep);
+  const saveStep = (next) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("currentStep", next);
+    }
+    setStep(next);
+  };
 
   const nextStep = () => {
-    setStep(step + 1);
+    saveStep(step + 1);
   };
 
   const backStep = () => {
-    if (setStep(step === 1)) {
-      return;
-    } else {
-      setStep(step - 1);
+    if (step === 1) return;
+    saveStep(step - 1);
+  };
+
+  const backtostep = () => {
+    if (step === 4) {
+      saveStep(step - 3);
     }
   };
   return (
@@ -37,7 +52,7 @@ export default function Home() {
           HandleNextStep={() => nextStep()}
         />
       )}
-      {step === 4 && <StepFour />}
+      {step === 4 && <StepFour backtostep={() => backtostep()} />}
     </>
   );
 }
