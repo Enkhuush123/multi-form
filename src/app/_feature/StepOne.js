@@ -5,11 +5,7 @@ import { Input } from "../_components/Form-Input";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const checkInputSpecial = (string) => {
-  return /[!@#$%^&*(),.?;"{}]/.test(string);
-};
-
-const checkInputNumbers = (string) => {
-  return /\d/.test(string);
+  return /^[a-zA-Z]+$/.test(string);
 };
 
 const addStepOneToLocalStorage = (value) => {
@@ -45,22 +41,13 @@ export const StepOne = (props) => {
   const validate = () => {
     const errors = {};
 
-    if (
-      checkInputNumbers(formValue.firstName) ||
-      checkInputSpecial(formValue.firstName)
-    ) {
+    if (!checkInputSpecial(formValue.firstName)) {
       errors.firstName = "ajlahgu bn";
     }
-    if (
-      checkInputNumbers(formValue.lastName) ||
-      checkInputSpecial(formValue.lastName)
-    ) {
+    if (!checkInputSpecial(formValue.lastName)) {
       errors.lastName = "ajlahgu bn";
     }
-    if (
-      checkInputNumbers(formValue.userName) ||
-      checkInputSpecial(formValue.userName)
-    ) {
+    if (!checkInputSpecial(formValue.userName)) {
       errors.userName = "ajlahgu bn";
     }
     return errors;
@@ -78,13 +65,13 @@ export const StepOne = (props) => {
     }
   };
 
-  const disable = () => {
-    return (
-      formValue.firstName.length === 0 ||
-      formValue.lastName.length === 0 ||
-      formValue.userName.length === 0
-    );
-  };
+  // const disable = () => {
+  //   return (
+  //     formValue.firstName.length === 0 ||
+  //     formValue.lastName.length === 0 ||
+  //     formValue.userName.length === 0
+  //   );
+  // };
 
   return (
     <div className="container">
@@ -139,7 +126,7 @@ export const StepOne = (props) => {
       <div>
         <button
           type="button"
-          disabled={disable()}
+          // disabled={disable()}
           className="button1"
           onClick={handleSubButton}
         >
