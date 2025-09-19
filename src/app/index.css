@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  display: flex;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
+  justify-content: center;
+  padding-top: 184px;
+}
+
+.container {
+  width: 480px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  box-shadow: 0 0 5px rgb(0, 0, 0.1);
+  gap: 100px;
+}
+
+.cont {
+  width: 416px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.headerp {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+img {
+  width: 60px;
+  height: 60px;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 26px;
+  color: black;
+}
+
+.headertext {
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+  opacity: 0.5;
+}
+
+.border {
+  width: 416px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+}
+
+.input {
+  width: 416px;
+  height: 44px;
+  border: 1px solid;
+  border-radius: 6px;
+  padding-left: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.inputerr {
+  border: 1px solid #e14942;
+  color: #e14942;
+  width: 416px;
+  height: 44px;
+  border: 1px solid;
+  border-radius: 6px;
+  padding-left: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  gap: 8px;
+}
+.inputtext1 {
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.button1 {
+  width: 416px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 416px;
+  height: 44px;
+  background-color: black;
+  border-radius: 6px;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.span {
+  color: red;
+}
+
+.psan {
+  color: #e14942;
+}
+
+.button2 {
+  width: 128px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.buttondiv {
+  display: flex;
+  gap: 8px;
+}
+
+.date {
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* .datediv {
+  width: 416px;
+  height: 44px;
+  border: 1px solid black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+} */
+
+.dateinput {
+  width: 416px;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.dateinputerr {
+  width: 416px;
+  padding: 12px;
+  border: 1px solid #e14942;
+  border-radius: 6px;
+}
+
+.profile {
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+}
+.imgdiv {
+  width: 416px;
+  height: 180px;
+  background-color: #7f7f800d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.imgdiverr {
+  width: 416px;
+  height: 180px;
+  background-color: #7f7f800d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  border: 1px solid #e14942;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.uploadbox {
+  width: 416px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgplaceholder {
+  color: #777;
+  font-size: 14px;
+}
+
+.imgplaceholdererr {
+  color: #e14942;
+  font-size: 14px;
+}
+
+.uploadicon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icondiv {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.imageupload {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.removebutt {
+  width: 130px;
+  height: 50px;
+  background-color: aquamarine;
+  display: flex;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid black;
+}
+
+.eyeslashdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.eyeslash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 8px;
+}
