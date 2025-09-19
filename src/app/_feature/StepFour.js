@@ -1,8 +1,5 @@
 "use client";
-
-import { useState } from "react";
-import { Input } from "../_components/Form-Input";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 
 export const StepFour = ({ backtostep }) => {
   return (
@@ -11,7 +8,12 @@ export const StepFour = ({ backtostep }) => {
         <div className="headerp">
           <div>
             <div>
-              <img src="/pinecone.png" alt="pinecone"></img>
+              <Image
+                src="/pinecone.png"
+                alt="pinecone"
+                width={60}
+                height={60}
+              ></Image>
             </div>
             <div className="header">
               <p>You&apos;re All Set 🔥</p>

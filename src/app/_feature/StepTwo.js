@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Input } from "../_components/Form-Input";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 
 const checkEmail = (string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(string);
@@ -94,12 +95,7 @@ export const StepTwo = (props) => {
       <div className="cont">
         <div className="headerp">
           <div>
-            <img
-              src="/pinecone.png"
-              alt="pinecone"
-              width={60}
-              height={60}
-            ></img>
+            <Image src="/pinecone.png" alt="pinecone" width={60} height={60} />
           </div>
           <div className="header">
             <p>Join Us! 😎</p>

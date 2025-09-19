@@ -35,7 +35,7 @@ export const Input = (props) => {
         type={isPassword && !showpassword ? "password" : "text"}
       ></input>
 
-      {error && <p className="psan"> "{errorMess}" </p>}
+      {error && <p className="psan"> &quot;{errorMess}&quot; </p>}
     </div>
   );
 };

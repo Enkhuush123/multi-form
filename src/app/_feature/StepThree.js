@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Input } from "../_components/Form-Input";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 
 const addStepThreeToLocalStorage = (values) => {
   localStorage.setItem("stepThree", JSON.stringify(values));
@@ -103,7 +104,7 @@ export const StepThree = (props) => {
       <div className="cont">
         <div className="headerp">
           <div>
-            <img src="/pinecone.png" alt="pinecone"></img>
+            <Image src="/pinecone.png" alt="pinecone" width={60} height={60} />
           </div>
           <div className="header">
             <p>Join Us! 😎</p>
@@ -145,14 +146,22 @@ export const StepThree = (props) => {
                 />
                 <div className="uploadbox">
                   {image ? (
-                    <img className="img" src={image} alt="img" />
+                    <Image
+                      className="img"
+                      src={image}
+                      alt="img"
+                      width={100}
+                      height={100}
+                    />
                   ) : (
                     <div className="icondiv">
                       <div className="icon">
-                        <img
-                          src="uploadicon.svg"
+                        <Image
+                          src="/uploadicon.svg"
                           alt="upload"
                           className="uploadicon"
+                          width={28}
+                          height={28}
                         />
                       </div>
                       <div
