@@ -16,16 +16,18 @@ export const StepOne = (props) => {
   const { HandleNextStep } = props;
 
   const getStepOneFromLocalStorage = () => {
-    const value = localStorage.getItem("stepOne");
-    if (value) {
-      return JSON.parse(value);
-    } else {
-      return {
-        firstName: "",
-        lastName: "",
-        userName: "",
-      };
+    if (typeof window !== "undefined") {
+      const value = localStorage.getItem("stepOne");
+      if (value) {
+        return JSON.parse(value);
+      }
     }
+
+    return {
+      firstName: "",
+      lastName: "",
+      userName: "",
+    };
   };
 
   const [formValue, setFormValue] = useState(getStepOneFromLocalStorage());
@@ -65,20 +67,25 @@ export const StepOne = (props) => {
     }
   };
 
-  // const disable = () => {
-  //   return (
-  //     formValue.firstName.length === 0 ||
-  //     formValue.lastName.length === 0 ||
-  //     formValue.userName.length === 0
-  //   );
-  // };
+  const disable = () => {
+    return (
+      !formValue.firstName.length ||
+      !formValue.lastName.length ||
+      !formValue.userName.length
+    );
+  };
 
   return (
     <div className="container">
       <div className="cont">
         <div className="headerp">
           <div>
-            <img src="/pinecone.png" alt="pinecone"></img>
+            <img
+              src="/pinecone.png"
+              alt="pinecone"
+              width={60}
+              height={60}
+            ></img>
           </div>
           <div className="header">
             <p>Join Us! 😎</p>
@@ -126,7 +133,7 @@ export const StepOne = (props) => {
       <div>
         <button
           type="button"
-          // disabled={disable()}
+          disabled={disable()}
           className="button1"
           onClick={handleSubButton}
         >

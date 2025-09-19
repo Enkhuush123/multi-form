@@ -14,7 +14,7 @@ export const StepFour = ({ backtostep }) => {
               <img src="/pinecone.png" alt="pinecone"></img>
             </div>
             <div className="header">
-              <p>You're All Set 🔥</p>
+              <p>You&apos;re All Set 🔥</p>
             </div>
             <div className="headertext">
               <p>We have received your submission. Thank you!</p>

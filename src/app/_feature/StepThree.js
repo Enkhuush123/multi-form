@@ -1,20 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "../_components/Form-Input";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-const checkEmail = (string) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(string);
-};
-
-const checkInputNumbers = (string) => {
-  return /^[0-9]{8}$/.test(string);
-};
-
-const checkPassword = (string) => {
-  return /^[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(string);
-};
 
 const addStepThreeToLocalStorage = (values) => {
   localStorage.setItem("stepThree", JSON.stringify(values));
@@ -23,16 +11,17 @@ const addStepThreeToLocalStorage = (values) => {
 export const StepThree = (props) => {
   const { HandleBackStep, HandleNextStep } = props;
 
-  const getStepThreeFromLocalStorage = () => {
-    const values = localStorage.getItem("stepThree");
-    const savedImage = localStorage.getItem("stepThreeImage");
-    return {
-      date: values ? JSON.parse(values).date : "",
-      image: savedImage ? savedImage : null,
-    };
-  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedForm = localStorage.getItem("stepThree");
+      const savedImage = localStorage.getItem("stepThreeImage");
 
-  const [formValue, setFormValue] = useState(getStepThreeFromLocalStorage);
+      if (savedForm) setFormValue(JSON.parse(savedForm));
+      if (savedImage) setImage(savedImage);
+    }
+  }, []);
+
+  const [formValue, setFormValue] = useState({ date: "" });
 
   const [errorState, setErrorState] = useState({});
 

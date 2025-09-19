@@ -23,17 +23,19 @@ export const StepTwo = (props) => {
   const { HandleBackStep, HandleNextStep } = props;
 
   const getStepTwoFromLocalStorage = () => {
-    const values = localStorage.getItem("stepTwo");
-    if (values) {
-      return JSON.parse(values);
-    } else {
-      return {
-        email: "",
-        phonenumber: "",
-        password: "",
-        confirmpass: "",
-      };
+    if (typeof window !== "undefined") {
+      const values = localStorage.getItem("stepTwo");
+      if (values) {
+        return JSON.parse(values);
+      }
     }
+
+    return {
+      email: "",
+      phonenumber: "",
+      password: "",
+      confirmpass: "",
+    };
   };
 
   const [formValue, setFormValue] = useState(getStepTwoFromLocalStorage);
@@ -92,7 +94,12 @@ export const StepTwo = (props) => {
       <div className="cont">
         <div className="headerp">
           <div>
-            <img src="/pinecone.png" alt="pinecone"></img>
+            <img
+              src="/pinecone.png"
+              alt="pinecone"
+              width={60}
+              height={60}
+            ></img>
           </div>
           <div className="header">
             <p>Join Us! 😎</p>
